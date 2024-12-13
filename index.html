@@ -3,12 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rock paper scissors</title>
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-  <a href="games/python_rock_paper_scissors.py">
-    <b><p>rock paper sizzors</p></b>
-  </a>
+
+    <h1>Rock, Paper, Scissors</h1>
+    <p>Choose your move:</p>
     
+    <button onclick="playGame('rock')">Rock</button>
+    <button onclick="playGame('paper')">Paper</button>
+    <button onclick="playGame('scissors')">Scissors</button>
+
+    <div class="result" id="result"></div>
+    <div class="result" id="computerChoice"></div>
+
+    <script>
+        function playGame(playerChoice) {
+            const moves = ['rock', 'paper', 'scissors'];
+            const computerChoice = moves[Math.floor(Math.random() * 3)];
+
+            document.getElementById('computerChoice').innerText = "Computer chooses: " + computerChoice;
+
+            if (playerChoice === computerChoice) {
+                document.getElementById('result').innerText = "It's a tie!";
+            } else if (
+                (playerChoice === "rock" && computerChoice === "scissors") ||
+                (playerChoice === "scissors" && computerChoice === "paper") ||
+                (playerChoice === "paper" && computerChoice === "rock")
+            ) {
+                document.getElementById('result').innerText = "You win!";
+            } else {
+                document.getElementById('result').innerText = "Computer wins!";
+            }
+        }
+    </script>
+
 </body>
 </html>
