@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        button { font-size: 20px; padding: 10px 20px; margin: 10px; cursor: pointer; }
+        .result { font-size: 50px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Coin Flip</h1>
+    <button onclick="flipCoin()">Flip the Coin!</button>
+    <div class="result" id="result">Heads</div>
+
+    <script>
+        function flipCoin() {
+            const result = Math.random() < 0.5 ? "Heads" : "Tails";
+            document.getElementById('result').innerText = result;
+        }
+    </script>
+</body>
+</html>

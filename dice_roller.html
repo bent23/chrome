@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        button { font-size: 20px; padding: 10px 20px; margin: 10px; cursor: pointer; }
+        .result { font-size: 50px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Dice Roller</h1>
+    <button onclick="rollDice()">Roll the Dice!</button>
+    <div class="result" id="result">0</div>
+
+    <script>
+        function rollDice() {
+            const dice = Math.floor(Math.random() * 6) + 1;
+            document.getElementById('result').innerText = dice;
+        }
+    </script>
+</body>
+</html>

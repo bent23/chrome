@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <style>
+        body { text-align: center; }
+        canvas { border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <h1>Snake Game</h1>
+    <canvas id="gameCanvas" width="300" height="300"></canvas>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const gridSize = 10;
+        let snake = [{ x: 5, y: 5 }];
+        let food = { x: 7, y: 7 };
+        let direction = { x: 1, y: 0 };
+
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Move snake
+            let head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                food = { x: Math.floor(Math.random() * 30), y: Math.floor(Math.random() * 30) };
+            } else {
+                snake.pop();
+            }
+
+            // Draw snake
+            ctx.fillStyle = "green";
+            for (let segment of snake) {
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize);
+            }
+
+            // Draw food
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
+
+            // Check collision with walls or self
+            if (head.x < 0 || head.x >= 30 || head.y < 0 || head.y >= 30 || isCollision(head)) {
+                clearInterval(gameInterval);
+                alert("Game Over!");
+            }
+        }
+
+        function isCollision(head) {
+            for (let i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowUp" && direction.y === 0) direction = { x: 0, y: -1 };
+            if (e.key === "ArrowDown" && direction.y === 0) direction = { x: 0, y: 1 };
+            if (e.key === "ArrowLeft" && direction.x === 0) direction = { x: -1, y: 0 };
+            if (e.key === "ArrowRight" && direction.x === 0) direction = { x: 1, y: 0 };
+        });
+
+        const gameInterval = setInterval(drawGame, 100);
+    </script>
+</body>
+</html>

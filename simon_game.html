@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <style>
+        body { text-align: center; }
+        .button { width: 100px; height: 100px; margin: 20px; border-radius: 50%; display: inline-block; cursor: pointer; }
+        .green { background-color: green; }
+        .red { background-color: red; }
+        .yellow { background-color: yellow; }
+        .blue { background-color: blue; }
+    </style>
+</head>
+<body>
+    <h1>Simon Game</h1>
+    <div class="green button" onclick="playSound('green')"></div>
+    <div class="red button" onclick="playSound('red')"></div>
+    <div class="yellow button" onclick="playSound('yellow')"></div>
+    <div class="blue button" onclick="playSound('blue')"></div>
+
+    <script>
+        const sequence = [];
+        let userInput = [];
+        let level = 0;
+
+        function playSound(color) {
+            const sound = new Audio(`sounds/${color}.mp3`);
+            sound.play();
+            userInput.push(color);
+            if (userInput.length === sequence.length) {
+                checkSequence();
+            }
+        }
+
+        function checkSequence() {
+            for (let i = 0; i < userInput.length; i++) {
+                if (userInput[i] !== sequence[i]) {
+                    alert('Game Over!');
+                    return;
+                }
+            }
+            level++;
+            userInput = [];
+            sequence.push(randomColor());
+            displaySequence();
+        }
+
+        function displaySequence() {
+            alert(`Level ${level}`);
+        }
+
+        function randomColor() {
+            const colors = ['green', 'red', 'yellow', 'blue'];
+            return colors[Math.floor(Math.random() * 4)];
+        }
+
+        function startGame() {
+            level = 1;
+            sequence.push(randomColor());
+            displaySequence();
+        }
+
+        startGame();
+    </script>
+</body>
+</html>

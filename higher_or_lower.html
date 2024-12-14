@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher or Lower</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Higher or Lower Game</h1>
+    <p>Guess if the next number will be higher or lower than the current one.</p>
+
+    <div class="result">
+        <p>Current Number: <span id="currentNumber">50</span></p>
+        <p>Guess: </p>
+        <button onclick="guess('higher')">Higher</button>
+        <button onclick="guess('lower')">Lower</button>
+    </div>
+
+    <div class="result" id="feedback"></div>
+
+    <script>
+        let currentNumber = 50;
+        let nextNumber = generateNumber();
+
+        function generateNumber() {
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        function guess(playerGuess) {
+            if ((playerGuess === "higher" && nextNumber > currentNumber) || 
+                (playerGuess === "lower" && nextNumber < currentNumber)) {
+                document.getElementById("feedback").innerText = "You guessed correctly!";
+            } else {
+                document.getElementById("feedback").innerText = "Wrong guess! Try again.";
+            }
+
+            currentNumber = nextNumber;
+            nextNumber = generateNumber();
+            document.getElementById("currentNumber").innerText = currentNumber;
+        }
+    </script>
+
+</body>
+</html>
