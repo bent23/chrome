@@ -3,66 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multi-Game Website</title>
+    <title>My Game Collection</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #333; }
+        .game-links { display: flex; flex-wrap: wrap; justify-content: center; }
+        .game-link { 
+            margin: 20px; 
+            padding: 20px 40px; 
+            background-color: #4CAF50; 
+            color: white; 
+            text-decoration: none; 
+            font-size: 20px; 
+            border-radius: 8px;
         }
-        h1 {
-            color: #333;
-        }
-        button {
-            font-size: 20px;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            border: 2px solid #d5f904;
-            background-color: #2dfa04;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #fb0707;
-        }
-        .menu {
-            margin-top: 50px;
-        }
+        .game-link:hover { background-color: #45a049; }
     </style>
 </head>
 <body>
-
-    <h1>Welcome to the Multi-Game Website!</h1>
-    <p>Select a game to play:</p>
-
-    <div class="menu">
-        <button onclick="window.location.href='rock_paper_scissors.html'">Rock, Paper, Scissors</button>
-        <button onclick="window.location.href='guess_the_number.html'">Guess the Number</button>
-        <button onclick="window.location.href='tic_tac_toe.html'">Tic-Tac-Toe</button>
-        <button onclick="window.location.href='higher_or_lower.html'">Higher or Lower</button>
-        <button onclick="window.location.href='dice_roller.html'">Dice Roller</button>
-        <button onclick="window.location.href='coin_flip.html'">Coin Flip</button>
-        <button onclick="window.location.href='memory_match.html'">Memory Match</button>
-        <button onclick="window.location.href='snake_game.html'">Snake Game</button>
-        <button onclick="window.location.href='catch_falling_objects.html'">Catch the Falling Objects</button>
-        <button onclick="window.location.href='number_guessing.html'">Number Guessing</button>
-        <button onclick="window.location.href='sudoku.html'">Sudoku</button>
-        <button onclick="window.location.href='hangman.html'">Hangman</button>
-        <button onclick="window.location.href='math_quiz.html'">Math Quiz</button>
-        <button onclick="window.location.href='simon_says.html'">Simon Says</button>
-        <button onclick="window.location.href='wheel_of_fortune.html'">Wheel of Fortune</button>
-        <button onclick="window.location.href='maze_runner.html'">Maze Runner</button>
-        <button onclick="window.location.href='matching_pairs.html'">Matching Pairs</button>
-        <button onclick="window.location.href='spot_the_difference.html'">Spot the Difference</button>
-        <button onclick="window.location.href='simon_game.html'">Simon Game</button>
-        <button onclick="window.location.href='typing_speed_test.html'">Typing Speed Test</button>
-        <button onclick="window.location.href='reaction_time_test.html'">Reaction Time Test</button>
-        <button onclick="window.location.href='2048_game.html'">2048 Game</button>
-        <button onclick="window.location.href='connect_four.html'">Connect Four</button>
-        <button onclick="window.location.href='word_search.html'">Word Search</button>
-        <button onclick="window.location.href='memory_sequence.html'">Memory Sequence</button>
-        <!-- Add more games here -->
+    <h1>Welcome to My Game Collection!</h1>
+    <p>Choose a game to play from the list below:</p>
+    <div class="game-links">
+        <a class="game-link" href="snake_game.html">Snake Game</a>
+        <a class="game-link" href="dice_roller.html">Dice Roller</a>
+        <a class="game-link" href="coin_flip.html">Coin Flip</a>
+        <a class="game-link" href="memory_match.html">Memory Match</a>
+        <a class="game-link" href="simon_game.html">Simon Game</a>
+        <!-- Add more game links here as you add more games -->
+        <a class="game-link" href="game1.html">Game 1</a>
+        <a class="game-link" href="game2.html">Game 2</a>
+        <a class="game-link" href="game3.html">Game 3</a>
+        <!-- Continue adding more games as needed -->
     </div>
-
 </body>
 </html>
